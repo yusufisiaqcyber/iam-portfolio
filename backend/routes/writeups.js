@@ -4,7 +4,7 @@ const { body, validationResult } = require('express-validator');
 const slugify = require('slugify');
 const db = require('../config/db');
 const { authenticateAdmin } = require('../middleware/auth');
-const emailService = require('../services/emailService');
+const emailService = require('../services/emailServices');
 
 // GET /api/writeups — Public: get published writeups
 router.get('/', async (req, res) => {
