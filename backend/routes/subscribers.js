@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const rateLimit = require('express-rate-limit');
 const db = require('../config/db');
 const { authenticateAdmin } = require('../middleware/auth');
-const emailService = require('../services/emailService');
+const emailService = require('../services/emailServices');
 
 const subscribeLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
