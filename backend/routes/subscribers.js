@@ -34,7 +34,7 @@ router.post('/', subscribeLimiter, [
     );
 
     // Send welcome email
-    emailService.sendWelcomeEmail(result.rows[0]).catch(console.error);
+    emailServices.sendWelcomeEmail(result.rows[0]).catch(console.error);
 
     res.status(201).json({ message: 'Successfully subscribed! Check your email.' });
   } catch (err) {
