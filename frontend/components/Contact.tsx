@@ -1,32 +1,32 @@
-import { Github, Linkedin, Mail, Youtube, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Youtube } from 'lucide-react';
 
 const contacts = [
   {
     icon: Github,
     label: 'GitHub',
-    handle: '@yourusername',
-    href: 'https://github.com/yourusername',
+    handle: '@yusufisiaqcyber',
+    href: 'https://github.com/yusufisiaqcyber',
     color: 'hover:text-slate-900 dark:hover:text-white'
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
     handle: 'Connect with me',
-    href: 'https://linkedin.com/in/yourusername',
+    href: 'https://linkedin.com/in/yusuf-isiaq',
     color: 'hover:text-blue-600'
   },
   {
     icon: Youtube,
     label: 'YouTube',
-    handle: '@YourChannel',
-    href: process.env.NEXT_PUBLIC_YOUTUBE_URL || '#',
+    handle: '@cybernuggetz-iam',
+    href: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@cybernuggetz-iam',
     color: 'hover:text-red-600'
   },
   {
     icon: Mail,
     label: 'Email',
-    handle: 'you@email.com',
-    href: 'mailto:you@email.com',
+    handle: 'yusufisiaqcyber@gmail.com',
+    href: 'mailto:yusufisiaqcyber@gmail.com',
     color: 'hover:text-blue-500'
   },
 ];
@@ -41,8 +41,7 @@ export default function Contact() {
           Let's Connect
         </h2>
         <p className="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto">
-          Open to collaborations, discussions about IAM security, or just connecting with
-          fellow engineers in the identity space.
+          Open to IAM roles, collaborations, and connecting with fellow engineers in the identity space.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
@@ -66,10 +65,10 @@ export default function Contact() {
         <div className="card inline-block px-8 py-6">
           <p className="text-slate-500 dark:text-slate-400 text-sm mb-1">Preferred contact</p>
           <a
-            href="mailto:you@email.com"
+            href="mailto:yusufisiaqcyber@gmail.com"
             className="text-blue-500 hover:text-blue-600 font-mono font-semibold text-lg"
           >
-            you@email.com
+            yusufisiaqcyber@gmail.com
           </a>
         </div>
       </div>

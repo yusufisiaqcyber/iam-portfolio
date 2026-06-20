@@ -20,10 +20,10 @@ export default function Hero() {
 
         {/* Name */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-          <span className="text-slate-900 dark:text-white">Your Name</span>
+          <span className="text-slate-900 dark:text-white">Yusuf Isiaq</span>
         </h1>
 
-        {/* Title with typing cursor */}
+        {/* Title */}
         <div className="flex items-center justify-center gap-2 mb-6">
           <Shield className="text-blue-500" size={20} />
           <h2 className="text-xl sm:text-2xl font-mono text-blue-500 font-semibold">
@@ -35,7 +35,7 @@ export default function Hero() {
         {/* Bio */}
         <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
           Securing digital identities through Zero Trust architecture, RBAC implementation,
-          and IAM solutions. Passionate about building systems that protect what matters most.
+          and IAM solutions. Sharing what I learn through write-ups and YouTube.
         </p>
 
         {/* CTA Buttons */}
@@ -48,7 +48,7 @@ export default function Hero() {
             Read Write-ups
           </a>
           <a
-            href={process.env.NEXT_PUBLIC_YOUTUBE_URL}
+            href={process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://youtube.com/@cybernuggetz-iam'}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
@@ -61,9 +61,9 @@ export default function Hero() {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4">
           {[
-            { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:you@email.com', label: 'Email' },
+            { icon: Github, href: 'https://github.com/yusufisiaqcyber', label: 'GitHub' },
+            { icon: Linkedin, href: 'https://linkedin.com/in/yusuf-isiaq', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:yusufisiaqcyber@gmail.com', label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
