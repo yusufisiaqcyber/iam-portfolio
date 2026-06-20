@@ -10,7 +10,7 @@ const emailService = require('../services/emailServices');
 router.get('/', async (req, res) => {
   try {
     const result = await db.query(
-      `SELECT id, title, slug, summary, tags, published_at, created_at
+      `SELECT id, title, slug, summary, tags, published, published_at, created_at
        FROM writeups WHERE published = TRUE
        ORDER BY published_at DESC`
     );
