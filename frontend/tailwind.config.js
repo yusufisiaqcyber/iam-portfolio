@@ -5,6 +5,10 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    'card', 'btn-primary', 'btn-outline', 'tag', 'section-label',
+    'nav-link', 'gradient-text', 'glow', 'animate-fade-in', 'animate-slide-up'
+  ],
   darkMode: 'class',
   theme: {
     extend: {
