@@ -112,10 +112,7 @@ export default function WriteupPage({ writeup }: Props) {
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-5">
             {writeup.tags.map(tag => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-mono font-medium bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800"
-              >
+              <span key={tag} className="tag flex items-center gap-1">
                 <Tag size={9} /> {tag}
               </span>
             ))}

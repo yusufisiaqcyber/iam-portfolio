@@ -5,13 +5,16 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 const navItems = [
-  { href: '#home',     label: 'Home' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills',   label: 'Skills' },
-  { href: '#writeups', label: 'Write-ups' },
-  { href: '#about',    label: 'About' },
-  { href: '#contact',  label: 'Contact' },
+  { href: '/#home',     label: 'Home' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/#skills',   label: 'Skills' },
+  { href: '/#writeups', label: 'Write-ups' },
+  { href: '/#about',    label: 'About' },
+  { href: '/#contact',  label: 'Contact' },
 ];
+
+// Inlined nav-link styles — no @apply dependency
+const navLinkCls = 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150 font-medium';
 
 export default function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -48,9 +51,9 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map(item => (
-              <a key={item.href} href={item.href} className="nav-link text-sm">
+              <Link key={item.href} href={item.href} className={`${navLinkCls} text-sm`}>
                 {item.label}
-              </a>
+              </Link>
             ))}
 
             {/* YouTube Button */}
@@ -99,14 +102,14 @@ export default function Navbar() {
         {menuOpen && (
           <div className="md:hidden pb-4 border-t border-slate-200 dark:border-[#1e2d4a] mt-2 pt-4 flex flex-col gap-3">
             {navItems.map(item => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="nav-link text-sm px-2 py-1"
+                className={`${navLinkCls} text-sm px-2 py-1`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href={process.env.NEXT_PUBLIC_YOUTUBE_URL}
