@@ -7,26 +7,11 @@ import { adminLogin, verifyToken, getSubscribers, getAllWriteups, getProjects,
 
 type Tab = 'projects' | 'writeups' | 'subscribers';
 
-// ── Shared class constants (pure Tailwind utilities, no @apply) ──────────────
-const inputCls = [
-  'w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-[#1e2d4a]',
-  'bg-white dark:bg-[#0a0f1e] text-slate-900 dark:text-white text-sm',
-  'focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all',
-].join(' ');
+const inputCls = `w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-[#1e2d4a]
+  bg-white dark:bg-[#0a0f1e] text-slate-900 dark:text-white text-sm
+  focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all`;
 
 const labelCls = 'block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide';
-
-// Replaces .card
-const cardCls = 'bg-white dark:bg-[#0f1629] border border-slate-200 dark:border-[#1e2d4a] rounded-xl p-6 shadow-sm';
-
-// Replaces .btn-primary
-const btnPrimaryCls = 'inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-blue-500/25';
-
-// Replaces .btn-outline
-const btnOutlineCls = 'inline-flex items-center gap-2 border border-slate-200 dark:border-[#1e2d4a] hover:border-blue-500 dark:hover:border-blue-500 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-semibold transition-all duration-200 bg-white dark:bg-[#0f1629]';
-
-// Replaces .tag
-const tagCls = 'inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-mono font-medium bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -136,7 +121,7 @@ export default function AdminDashboard() {
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Admin Access</h1>
           <p className="text-slate-500 text-sm mt-1 font-mono">IAM Portfolio Management</p>
         </div>
-        <form onSubmit={handleLogin} className={`${cardCls} space-y-5`}>
+        <form onSubmit={handleLogin} className="card space-y-5">
           <div>
             <label className={labelCls}>Username</label>
             <input
@@ -159,7 +144,7 @@ export default function AdminDashboard() {
               required
             />
           </div>
-          <button type="submit" className={`${btnPrimaryCls} w-full justify-center`}>
+          <button type="submit" className="btn-primary w-full justify-center">
             <Shield size={15} /> Sign In
           </button>
         </form>
@@ -200,7 +185,7 @@ export default function AdminDashboard() {
             { label: 'Write-ups', value: writeups.length, icon: BookOpen, color: 'text-violet-500' },
             { label: 'Subscribers', value: subscribers.filter(s => s.is_active).length, icon: Users, color: 'text-emerald-500' },
           ].map(({ label, value, icon: Icon, color }) => (
-            <div key={label} className={`${cardCls} text-center hover:-translate-y-0.5 transition-transform`}>
+            <div key={label} className="card text-center hover:-translate-y-0.5 transition-transform">
               <Icon className={`${color} mx-auto mb-2`} size={18} />
               <div className="text-3xl font-bold text-slate-900 dark:text-white mb-0.5">{value}</div>
               <div className="text-slate-500 text-xs font-mono uppercase tracking-wide">{label}</div>
@@ -229,13 +214,13 @@ export default function AdminDashboard() {
               <h2 className="font-semibold text-slate-900 dark:text-white">
                 Projects <span className="text-slate-400 font-normal text-sm ml-1">({projects.length})</span>
               </h2>
-              <button onClick={() => setShowProjectForm(!showProjectForm)} className={`${btnPrimaryCls} text-sm py-2 px-4`}>
+              <button onClick={() => setShowProjectForm(!showProjectForm)} className="btn-primary text-sm py-2 px-4">
                 <Plus size={14} /> Add Project
               </button>
             </div>
 
             {showProjectForm && (
-              <form onSubmit={handleCreateProject} className={`${cardCls} mb-6 space-y-4 border-blue-500/20`}>
+              <form onSubmit={handleCreateProject} className="card mb-6 space-y-4 border-blue-500/20">
                 <h3 className="font-semibold text-slate-900 dark:text-white text-sm flex items-center gap-2">
                   <Plus size={14} className="text-blue-500" /> New Project
                 </h3>
@@ -268,15 +253,15 @@ export default function AdminDashboard() {
                   Mark as Featured
                 </label>
                 <div className="flex gap-3 pt-1">
-                  <button type="submit" className={`${btnPrimaryCls} text-sm py-2 px-4`}>Save Project</button>
-                  <button type="button" onClick={() => setShowProjectForm(false)} className={`${btnOutlineCls} text-sm py-2 px-4`}>Cancel</button>
+                  <button type="submit" className="btn-primary text-sm py-2 px-4">Save Project</button>
+                  <button type="button" onClick={() => setShowProjectForm(false)} className="btn-outline text-sm py-2 px-4">Cancel</button>
                 </div>
               </form>
             )}
 
             <div className="space-y-3">
               {projects.map(p => (
-                <div key={p.id} className={`${cardCls} flex items-start justify-between gap-4 hover:border-blue-500/30 transition-colors`}>
+                <div key={p.id} className="card flex items-start justify-between gap-4 hover:border-blue-500/30 transition-colors">
                   <div className="flex-grow min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
                       <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{p.title}</h3>
@@ -284,7 +269,7 @@ export default function AdminDashboard() {
                     </div>
                     <p className="text-xs text-slate-500 leading-relaxed mb-2">{p.description}</p>
                     <div className="flex flex-wrap gap-1">
-                      {p.tech_stack?.map((t: string) => <span key={t} className={tagCls}>{t}</span>)}
+                      {p.tech_stack?.map((t: string) => <span key={t} className="tag">{t}</span>)}
                     </div>
                   </div>
                   <button onClick={() => handleDeleteProject(p.id)} className="text-slate-300 dark:text-slate-600 hover:text-red-500 transition-colors flex-shrink-0 mt-0.5">
@@ -293,7 +278,7 @@ export default function AdminDashboard() {
                 </div>
               ))}
               {projects.length === 0 && (
-                <div className={`${cardCls} text-center py-12 border-dashed`}>
+                <div className="card text-center py-12 border-dashed">
                   <FolderOpen className="text-slate-300 mx-auto mb-3" size={32} />
                   <p className="text-slate-400 text-sm">No projects yet — add your first one above.</p>
                 </div>
@@ -309,13 +294,13 @@ export default function AdminDashboard() {
               <h2 className="font-semibold text-slate-900 dark:text-white">
                 Write-ups <span className="text-slate-400 font-normal text-sm ml-1">({writeups.length})</span>
               </h2>
-              <button onClick={() => setShowWriteupForm(!showWriteupForm)} className={`${btnPrimaryCls} text-sm py-2 px-4`}>
+              <button onClick={() => setShowWriteupForm(!showWriteupForm)} className="btn-primary text-sm py-2 px-4">
                 <Plus size={14} /> New Write-up
               </button>
             </div>
 
             {showWriteupForm && (
-              <form onSubmit={handleCreateWriteup} className={`${cardCls} mb-6 space-y-4 border-blue-500/20`}>
+              <form onSubmit={handleCreateWriteup} className="card mb-6 space-y-4 border-blue-500/20">
                 <h3 className="font-semibold text-slate-900 dark:text-white text-sm flex items-center gap-2">
                   <Plus size={14} className="text-blue-500" /> New Write-up
                 </h3>
@@ -346,17 +331,17 @@ export default function AdminDashboard() {
                   Publish immediately — subscribers will be notified
                 </label>
                 <div className="flex gap-3 pt-1">
-                  <button type="submit" className={`${btnPrimaryCls} text-sm py-2 px-4`}>
+                  <button type="submit" className="btn-primary text-sm py-2 px-4">
                     {writeupForm.published ? '🚀 Publish' : '💾 Save Draft'}
                   </button>
-                  <button type="button" onClick={() => setShowWriteupForm(false)} className={`${btnOutlineCls} text-sm py-2 px-4`}>Cancel</button>
+                  <button type="button" onClick={() => setShowWriteupForm(false)} className="btn-outline text-sm py-2 px-4">Cancel</button>
                 </div>
               </form>
             )}
 
             <div className="space-y-3">
               {writeups.map(w => (
-                <div key={w.id} className={`${cardCls} flex items-start justify-between gap-4 hover:border-blue-500/30 transition-colors`}>
+                <div key={w.id} className="card flex items-start justify-between gap-4 hover:border-blue-500/30 transition-colors">
                   <div className="flex-grow min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
                       <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{w.title}</h3>
@@ -370,7 +355,7 @@ export default function AdminDashboard() {
                     </div>
                     <p className="text-xs text-slate-500 leading-relaxed mb-2">{w.summary}</p>
                     <div className="flex gap-1 flex-wrap">
-                      {w.tags?.map((t: string) => <span key={t} className={tagCls}>{t}</span>)}
+                      {w.tags?.map((t: string) => <span key={t} className="tag">{t}</span>)}
                     </div>
                   </div>
                   <div className="flex items-center gap-2 flex-shrink-0 mt-0.5">
@@ -386,7 +371,7 @@ export default function AdminDashboard() {
                 </div>
               ))}
               {writeups.length === 0 && (
-                <div className={`${cardCls} text-center py-12 border-dashed`}>
+                <div className="card text-center py-12 border-dashed">
                   <BookOpen className="text-slate-300 mx-auto mb-3" size={32} />
                   <p className="text-slate-400 text-sm">No write-ups yet — start writing above.</p>
                 </div>
@@ -406,7 +391,7 @@ export default function AdminDashboard() {
                 </span>
               </h2>
             </div>
-            <div className={`${cardCls} overflow-x-auto`}>
+            <div className="card overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-100 dark:border-[#1e2d4a]">
