@@ -45,7 +45,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-mono font-bold text-blue-600 dark:text-blue-400">
             <Shield size={20} />
-            <span className="text-lg">&lt;IAM.Engineer /&gt;</span>
+            <span className="text-lg">"YUSUF ISIAQ"</span>
           </Link>
 
           {/* Desktop Nav */}

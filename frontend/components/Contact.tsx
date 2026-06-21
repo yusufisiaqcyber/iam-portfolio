@@ -12,7 +12,7 @@ const contacts = [
     icon: Linkedin,
     label: 'LinkedIn',
     handle: 'Connect with me',
-    href: 'https://linkedin.com/in/yusuf-isiaq',
+    href: 'https://linkedin.com/in/cybernuggetz',
     color: 'hover:text-blue-600'
   },
   {
